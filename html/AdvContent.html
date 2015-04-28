@@ -1,0 +1,26 @@
+<div id='templates_modal' class='template modal'>
+  <div class='modal-header'>
+    <button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
+    <h1 class='dialog-title'>文章内容编辑_方正翔宇插件</h1>
+  </div>
+  <div class='modal-body'>
+    <div class="pull-left">
+      <h2>上一页</h2>
+      <input type="text" name="lastpage" id="lastpage" value="{{lastpage}}" />
+    </div>
+    <div class="pull-right">
+      <h2>下一页</h2>
+      <input type="text" name="nextpage" id="nextpage" value="{{nextpage}}" />
+    </div>
+    <hr style="clear:both;" />
+    <h2>标签</h2>
+    <div id="selectTag">
+      <span data-start="<Article>" data-end="</Article>" title="稿件">稿件</span>　|　<span data-start="<PreTitle>PreTitlePh</PreTitle>" title="引题">引题</span>　|　<span data-start='<Title length="0">TitlePh</Title>' title="标题">标题</span>　|　<span data-start="<Subtitle>SubtitlePh</Subtitle>" title="副题">副题</span>　|　<span data-start="<Abstract>AbstractPh</Abstract>" title="摘要">摘要</span>　|　<span data-start="<Content>ContentPh</Content>" title="正文">正文</span>　|　<span data-start='<Picture><img src="PictureUrlPh" /></Picture>' title="标题图片">标题图片</span>　|　<span data-start='<Url><a href="ArticleUrlPh" target="_blank"></Url>' data-end='</a>' title="文章链接">文章链接</span>　|　<span data-start='<Source>SourcePh</Source>' title="来源">来源</span>　|　<span data-start='<PubTime Language=1 BriefMonth=0 BriefWeek=0> YearPh-MonthPh-DayPh HourPh:MinutePh:SecondPh WeekPh </PubTime>' title="发布时间">发布时间</span>　|　<span data-start='<Author>AuthorPh</Author>' title="作者">作者</span>　|　<span data-start='<Editor>EditorPh</Editor>' title="编辑">编辑</span>　|　<span data-start='<Liability>LiabilityPh</Liability>' title="责任编辑">责任编辑</span>　|　<span data-start='<Keyword>KeywordPh</Keyword>' title="关键字">关键字</span>
+    </div>
+    <h2>内容</h2>
+    <textarea id="contentBox" style="font-size: 16px;width:95%;min-height:150px;">{{{comstring}}}</textarea>
+  </div>
+  <div class='modal-footer'>
+    <a id='templates_modalBtn' href='#' class='dialog-button btn btn-danger' data-dismiss='modal'>修改</a>
+  </div>
+</div>

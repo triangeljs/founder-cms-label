@@ -1,0 +1,12 @@
+{
+  "name": "方正翔宇CMS插件",
+  "title": "方正翔宇CMS插件",
+  "description": "方正翔宇CMS插件 私人定制。",
+  "homepage": "https://github.com/triangeljs/founder-cms-label",
+  "version": "1.0.0",
+  "author": "Yang Fan",
+  "license": "",
+  "engines": {
+    "brackets": ">=1.0.0"
+  }
+}
