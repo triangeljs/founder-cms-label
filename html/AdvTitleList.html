@@ -4,6 +4,12 @@
     <h1 class='dialog-title'>标题列表_方正翔宇插件</h1>
   </div>
   <div class='modal-body'>
+    <h2>标签</h2>
+    <div id="selectTag">
+      <span data-start="<Repeat Begin=0 End=0>" data-end="</Repeat>" title="循环">循环</span>　|　<span data-start="<Article>" data-end="</Article>" title="稿件">稿件</span>　|　<span data-start="<PreTitle>PreTitlePh</PreTitle>" title="引题">引题</span>　|　<span data-start='<Title length="0">TitlePh</Title>' title="标题">标题</span>　|　<span data-start="<Subtitle>SubtitlePh</Subtitle>" title="副题">副题</span>　|　<span data-start="<Abstract>AbstractPh</Abstract>" title="摘要">摘要</span>　|　<span data-start="<Content>ContentPh</Content>" title="正文">正文</span>　|　<span data-start='<Picture><img src="PictureUrlPh" /></Picture>' title="标题图片">标题图片</span>　|　<span data-start='<Url><a href="ArticleUrlPh" target="_blank"></Url>' data-end='</a>' title="文章链接">文章链接</span>
+    </div>
+    <h2>内容</h2>
+    <textarea id="contentBox" style="font-family:Arial;font-size:18px;line-height:22px;width:98%;min-height:110px;">{{{comstring}}}</textarea>
     <h2>稿件属性</h2>
     <div class="media" style="clear:both;">
       <input type="checkbox" name="attr" id="attr" value="+61" class="pull-left" {{attr_61}} />
@@ -25,14 +31,6 @@
       <h2>总条数</h2>
       <input type="text" name="dayspan" id="dayspan" value="{{dayspan}}" />
     </div>
-    <hr style="clear:both;" />
-    <h2>标签</h2>
-    <div id="selectTag">
-      <span data-start="<Repeat Begin=0 End=0>" data-end="</Repeat>" title="循环">循环</span>　|　<span data-start="<Article>" data-end="</Article>" title="稿件">稿件</span>　|　<span data-start="<PreTitle>PreTitlePh</PreTitle>" title="引题">引题</span>　|　<span data-start='<Title length="0">TitlePh</Title>' title="标题">标题</span>　|　<span data-start="<Subtitle>SubtitlePh</Subtitle>" title="副题">副题</span>　|　<span data-start="<Abstract>AbstractPh</Abstract>" title="摘要">摘要</span>　|　<span data-start="<Content>ContentPh</Content>" title="正文">正文</span>　|　<span data-start='<Picture><img src="PictureUrlPh" /></Picture>' title="标题图片">标题图片</span>　|　<span data-start='<Url><a href="ArticleUrlPh" target="_blank"></Url>' data-end='</a>' title="文章链接">文章链接</span>
-    </div>
-    <hr style="clear:both;" />
-    <h2>内容</h2>
-    <textarea id="contentBox" style="width:95%;min-height:110px;">{{{comstring}}}</textarea>
   </div>
   <div class='modal-footer'>
     <a id='templates_modalBtn' href='#' class='dialog-button btn btn-danger' data-dismiss='modal'>修改</a>

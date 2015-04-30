@@ -69,17 +69,11 @@ define(function (require, exports, module) {
   // 单个栏目编辑
   function singleNode(data) {
     var editor = EditorManager.getCurrentFullEditor(),
-        insertionText = editor.getSelectedText(),
-        modal = require('text!html/SingleNode.html'),
-        insertionPos = editor.getCursorPos();
-    var start = {
-      line: insertionPos.line,
-      ch: insertionPos.ch >= insertionText.length ? insertionPos.ch - insertionText.length : insertionPos.ch
-    }
-    var end = {
-      line: insertionPos.line,
-      ch: insertionPos.ch >= insertionText.length ? insertionPos.ch : insertionPos.ch + insertionText.length
-    }
+        modal = require('text!html/SingleNode.html');
+    var getSelections = editor.getSelections(),
+        convertToLineSelections = editor.convertToLineSelections(getSelections);
+    var start = convertToLineSelections[0].selectionsToTrack[0].start;
+    var end = convertToLineSelections[0].selectionsToTrack[0].end;
     var ptn = new RegExp('#TARGET:(.*)', 'g');
     data['target'] = ptn.exec(data.style)[1];
     data['szinfo'] = html_decode(data.szinfo);
@@ -109,17 +103,11 @@ define(function (require, exports, module) {
   // 标题列表编辑
   function advTitleList(data) {
     var editor = EditorManager.getCurrentFullEditor(),
-        insertionText = editor.getSelectedText(),
-        modal = require('text!html/AdvTitleList.html'),
-        insertionPos = editor.getCursorPos();
-    var start = {
-      line: insertionPos.line,
-      ch: insertionPos.ch >= insertionText.length ? insertionPos.ch - insertionText.length : insertionPos.ch
-    }
-    var end = {
-      line: insertionPos.line,
-      ch: insertionPos.ch >= insertionText.length ? insertionPos.ch : insertionPos.ch + insertionText.length
-    }
+        modal = require('text!html/AdvTitleList.html');
+    var getSelections = editor.getSelections(),
+        convertToLineSelections = editor.convertToLineSelections(getSelections);
+    var start = convertToLineSelections[0].selectionsToTrack[0].start;
+    var end = convertToLineSelections[0].selectionsToTrack[0].end;
     
     // 稿件属性
     var ptn = new RegExp('\\+\\d+', 'g');
@@ -171,17 +159,11 @@ define(function (require, exports, module) {
   // 分页标题列表编辑
   function advTitleListPage(data) {
     var editor = EditorManager.getCurrentFullEditor(),
-        insertionText = editor.getSelectedText(),
-        modal = require('text!html/AdvTitleListPage.html'),
-        insertionPos = editor.getCursorPos();
-    var start = {
-      line: insertionPos.line,
-      ch: insertionPos.ch >= insertionText.length ? insertionPos.ch - insertionText.length : insertionPos.ch
-    }
-    var end = {
-      line: insertionPos.line,
-      ch: insertionPos.ch >= insertionText.length ? insertionPos.ch : insertionPos.ch + insertionText.length
-    }
+        modal = require('text!html/AdvTitleListPage.html');
+    var getSelections = editor.getSelections(),
+        convertToLineSelections = editor.convertToLineSelections(getSelections);
+    var start = convertToLineSelections[0].selectionsToTrack[0].start;
+    var end = convertToLineSelections[0].selectionsToTrack[0].end;
     
     // 稿件属性
     var ptn = new RegExp('\\+\\d+', 'g');
@@ -236,17 +218,11 @@ define(function (require, exports, module) {
   // 文章内容编辑
   function advContent(data) {
     var editor = EditorManager.getCurrentFullEditor(),
-        insertionText = editor.getSelectedText(),
-        modal = require('text!html/AdvContent.html'),
-        insertionPos = editor.getCursorPos();
-    var start = {
-      line: insertionPos.line,
-      ch: insertionPos.ch >= insertionText.length ? insertionPos.ch - insertionText.length : insertionPos.ch
-    }
-    var end = {
-      line: insertionPos.line,
-      ch: insertionPos.ch >= insertionText.length ? insertionPos.ch : insertionPos.ch + insertionText.length
-    }
+        modal = require('text!html/AdvContent.html');
+    var getSelections = editor.getSelections(),
+        convertToLineSelections = editor.convertToLineSelections(getSelections);
+    var start = convertToLineSelections[0].selectionsToTrack[0].start;
+    var end = convertToLineSelections[0].selectionsToTrack[0].end;
     data['comstring'] = html_decode(data.comstring);
     
     Dialogs.showModalDialogUsingTemplate(Mustache.render(modal, data));
@@ -323,7 +299,8 @@ define(function (require, exports, module) {
     s = s.replace(/#enpquot#/g, '"');
     return s;
   }
-
+  
+  EditorManager.registerInlineEditProvider(AdvEditor);
   // 注册命令
   CommandManager.register('单个栏目_方正翔宇插件', 'SingleNode', InsertSingleNode);
   CommandManager.register('标题列表_方正翔宇插件', 'AdvTitleList', InsertAdvTitleList);
