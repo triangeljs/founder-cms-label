@@ -34,8 +34,15 @@ define(function (require, exports, module) {
   function AdvInsert(str) {
     var editor = EditorManager.getCurrentFullEditor();
     if (editor) {
+      var insertionText = editor.getSelectedText();
       // 获取光标位置，格式为：CodeMirror.Pos {line: 16, ch: 7}
       var insertionPos = editor.getCursorPos();
+      if(insertionText == '></' || insertionText == '--></') {
+        insertionPos.ch = insertionPos.ch - 2;
+      }
+      if(insertionText == '--><!--') {
+        insertionPos.ch = insertionPos.ch - 4;
+      }
       // 在光标后面插入方正标签
       editor.document.replaceRange(str, insertionPos);
     }
